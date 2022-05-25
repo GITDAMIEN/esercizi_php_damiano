@@ -25,12 +25,15 @@ class Plant extends Zoo{
     public $habitat;
     public $section;
 
+    public static $plantCount = 0;
+
     public function __construct($brandName, $location, $species, $name, $height, $habitat, $section){
         parent:: __construct($brandName, $location, $species);
         $this->name = $name;
         $this->height = $height;
         $this->habitat = $habitat;
         $this->section = $section;
+        self::$plantCount++;
     }
 
     public function infoPlant(){
@@ -44,6 +47,8 @@ class Animal extends Zoo{
     public $length;
     public $weight;
     public $section;
+
+    public static $animalCount = 0;
     
     public function __construct($brandName, $location, $species, $name, $length, $weight, $section){
         parent:: __construct($brandName, $location, $species);
@@ -51,6 +56,7 @@ class Animal extends Zoo{
         $this->length = $length;
         $this->weight = $weight;
         $this->section = $section;
+        self::$animalCount++;
     }
 
     public function infoAnimal(){
@@ -112,6 +118,8 @@ $struzzo->infoBird();
 
 $alga = new Plant("Parco Natura Viva", "Bussolengo, Verona", 250, "Alga", 70, "fondale marino", 3);
 $alga->infoPlant();
+
+echo "Al momento ci sono " . Plant::$plantCount . " piante e " . Animal::$animalCount . " animali.\n";
 
 // print_r($parcoNaturaViva);
 // print_r($ippopotamo);
